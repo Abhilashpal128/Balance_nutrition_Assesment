@@ -12,10 +12,10 @@ To start Metro, run the following command from the _root_ of your React Native p
 
 ```bash
 # using npm
-npm start
+npx react-native start
 
 # OR using Yarn
-yarn start
+yarn react-native start
 ```
 
 ## Step 2: Start your Application
@@ -26,21 +26,56 @@ Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _roo
 
 ```bash
 # using npm
-npm run android
+npx react-native run-android
 
-# OR using Yarn
-yarn android
 ```
 
 ### For iOS
 
 ```bash
 # using npm
-npm run ios
+npx react-native run-ios
 
-# OR using Yarn
-yarn ios
 ```
+
+## Libraries Used
+
+1. **[React Native Vector Icons](https://github.com/oblador/react-native-vector-icons)**:
+   - **Purpose**: Provides a wide range of customizable icons for various use cases in the app (e.g., navigation, buttons, etc.).
+   - **Usage**: Used for displaying icons throughout the app, such as in buttons, headers, or other UI elements where icons enhance user interaction and experience.
+   - **Installation**:
+     ```bash
+     npm install react-native-vector-icons
+     ```
+     Don't forget to link the fonts if needed for Android:
+     ```bash
+     react-native link react-native-vector-icons
+     ```
+
+2. **[React Hook Form](https://react-hook-form.com/)**:
+   - **Purpose**: A flexible and efficient library for managing form state, validation, and submission in React and React Native.
+   - **Usage**: Used to handle form input, validation, and error management efficiently in the app’s forms, reducing the need for complex state management.
+   - **Installation**:
+     ```bash
+     npm install react-hook-form
+     ```
+
+3. **[@react-native-picker/picker](https://github.com/react-native-picker/picker)**:
+   - **Purpose**: A fully customizable picker component for selecting options from a list in React Native.
+   - **Usage**: Used for dropdown selection where users need to pick options like categories, countries, etc., with an intuitive UI experience.
+   - **Installation**:
+     ```bash
+     npm install @react-native-picker/picker
+     ```
+
+4. **[@react-native-community/datetimepicker](https://github.com/react-native-datetimepicker/datetimepicker)**:
+   - **Purpose**: A cross-platform date and time picker for React Native that integrates seamlessly with both Android and iOS.
+   - **Usage**: Used for selecting dates or times (e.g., booking dates, setting reminders) in a native date-time picker interface.
+   - **Installation**:
+     ```bash
+     npm install @react-native-community/datetimepicker
+     ```
+
 
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
