@@ -69,10 +69,7 @@ const Accordion: React.FC<AccordionProps> = ({
   return (
     <View key={index} style={styles.accordionContainer}>
       <TouchableOpacity
-        style={[
-          styles.accordionHeader,
-          // isCompleted ? styles.completedAccordion : null,
-        ]}
+        style={[styles.accordionHeader]}
         activeOpacity={activeforms?.includes(index) ? 0 : 1}
         onPress={() =>
           activeforms?.includes(index) ? toggleSection(index) : null
@@ -122,7 +119,7 @@ const Accordion: React.FC<AccordionProps> = ({
             />
           </View>
           <Text style={styles.label}>Menu options:</Text>
-          {watchMeals[index]?.menu?.map((_, menuIndex: number) => (
+          {watchMeals[index]?.menu?.map((_: any, menuIndex: number) => (
             <Controller
               key={menuIndex}
               control={control}

@@ -31,7 +31,7 @@ const onSubmit = (data: FormData) => {
 };
 
 export default function WorkoutMealDetails() {
-  const [meals, setMeals] = useState<string>(null);
+  const [meals, setMeals] = useState<string>('');
 
   const [showTimePicker, setShowTimePicker] = useState(false);
 
