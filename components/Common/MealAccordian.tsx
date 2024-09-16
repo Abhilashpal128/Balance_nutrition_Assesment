@@ -18,11 +18,36 @@ type FormData = {
 };
 
 const mealsData = [
-  {title: 'Breakfast', placeholder: 'e.g. Upma + Apple juice', multiLine: true},
-  {title: 'Mid-morning', placeholder: 'e.g. Snack', multiLine: false},
-  {title: 'Lunch', placeholder: 'e.g. Dal + Rice', multiLine: true},
-  {title: 'Late evening', placeholder: 'e.g. Tea + Biscuits', multiLine: false},
-  {title: 'Dinner', placeholder: 'e.g. Soup + Salad', multiLine: true},
+  {
+    title: 'Breakfast',
+    placeholder: 'e.g. Upma + Apple juice',
+    multiLine: true,
+    isRequired: true,
+  },
+  {
+    title: 'Mid-morning',
+    placeholder: 'e.g. Snack',
+    multiLine: false,
+    isRequired: false,
+  },
+  {
+    title: 'Lunch',
+    placeholder: 'e.g. Dal + Rice',
+    multiLine: true,
+    isRequired: true,
+  },
+  {
+    title: 'Late evening',
+    placeholder: 'e.g. Tea + Biscuits',
+    multiLine: false,
+    isRequired: false,
+  },
+  {
+    title: 'Dinner',
+    placeholder: 'e.g. Soup + Salad',
+    multiLine: true,
+    isRequired: true,
+  },
 ];
 
 const MealAccordion: React.FC = () => {
@@ -60,8 +85,10 @@ const MealAccordion: React.FC = () => {
     }
     setActiveForms(prev => {
       if (!prev?.includes(index + 1)) {
-        console.log([...prev, index + 1]);
-        return [...prev, index + 1];
+        if (!mealsData[index]?.isRequired) {
+          return [...prev, index + 1];
+        }
+        return [...prev, index + 1, index + 2];
       }
       return prev;
     });
@@ -115,6 +142,7 @@ const MealAccordion: React.FC = () => {
               expandableIndex={expandableIndex}
               activeforms={activeforms}
               expandedIndex={expandedIndex}
+              isRequired={meal?.isRequired}
             />
           );
         })}

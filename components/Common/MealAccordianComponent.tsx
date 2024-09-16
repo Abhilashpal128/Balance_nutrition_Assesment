@@ -28,6 +28,7 @@ type AccordionProps = {
   expandableIndex: any;
   expandedIndex: number;
   activeforms: any;
+  isRequired: boolean;
 };
 
 const Accordion: React.FC<AccordionProps> = ({
@@ -45,6 +46,7 @@ const Accordion: React.FC<AccordionProps> = ({
   expandedIndex,
   handleActivateNext,
   activeforms,
+  isRequired,
 }) => {
   const [showTimePicker, setShowTimePicker] = useState(false);
 
@@ -62,9 +64,6 @@ const Accordion: React.FC<AccordionProps> = ({
       onChange(timeString);
     }
   };
-
-  console.log(`activeforms`, activeforms);
-  console.log(`isExpanded`, isExpanded);
 
   return (
     <View key={index} style={styles.accordionContainer}>
@@ -120,29 +119,39 @@ const Accordion: React.FC<AccordionProps> = ({
           </View>
           <Text style={styles.label}>Menu options:</Text>
           {watchMeals[index]?.menu?.map((_: any, menuIndex: number) => (
-            <Controller
+            <View
               key={menuIndex}
-              control={control}
-              name={`meals[${index}].menu[${menuIndex}]`}
-              render={({field: {onChange, value}}) => (
-                <TextInput
-                  style={styles.input}
-                  placeholder={placeholder}
-                  value={value}
-                  onChangeText={text => {
-                    onChange(text);
-                    handleActivateNext(text, index);
-                  }}
-                />
-              )}
-            />
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 5,
+                width: '100%',
+              }}>
+              <Text style={styles.label}>{menuIndex + 1}.</Text>
+              <Controller
+                control={control}
+                name={`meals[${index}].menu[${menuIndex}]`}
+                render={({field: {onChange, value}}) => (
+                  <TextInput
+                    style={styles.input}
+                    placeholder={placeholder}
+                    value={value}
+                    onChangeText={text => {
+                      onChange(text);
+                      handleActivateNext(text, index);
+                    }}
+                  />
+                )}
+              />
+            </View>
           ))}
           {isMultilined && (
             <TouchableOpacity
               style={styles.addMoreButton}
               onPress={handleAddMore}>
               <Text style={styles.addMoreText}>Add More</Text>
-              <Icon2 name="pluscircle" size={20} color="# " />
+              <Icon2 name="pluscircle" size={20} color="#03989f" />
             </TouchableOpacity>
           )}
         </View>
@@ -201,6 +210,7 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     padding: 8,
     marginBottom: 16,
+    width: '100%',
   },
   addMoreButton: {
     flexDirection: 'row',
