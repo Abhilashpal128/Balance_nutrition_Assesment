@@ -73,7 +73,11 @@ const Accordion: React.FC<AccordionProps> = ({
         onPress={() =>
           activeforms?.includes(index) ? toggleSection(index) : null
         }>
-        <Text style={styles.accordionTitle}>
+        <Text
+          style={[
+            styles.accordionTitle,
+            {color: activeforms?.includes(index) ? '#1a237e' : 'gray'},
+          ]}>
           {title}
           {index === 0 || index === 2 || index === 4 ? '*' : ''}
         </Text>
@@ -85,11 +89,10 @@ const Accordion: React.FC<AccordionProps> = ({
           />
         )}
       </TouchableOpacity>
-
       <Collapsible collapsed={!isExpanded}>
         <View style={styles.accordionBody}>
           <View style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
-            <Text style={(styles.label, {marginBottom: 16})}>Time:</Text>
+            <Text style={[styles.label, {marginBottom: 16}]}>Time:</Text>
             <Controller
               control={control}
               name={`meals[${index}].time`}
@@ -136,6 +139,7 @@ const Accordion: React.FC<AccordionProps> = ({
                   <TextInput
                     style={styles.input}
                     placeholder={placeholder}
+                    placeholderTextColor={'#555'}
                     value={value}
                     onChangeText={text => {
                       onChange(text);
@@ -176,6 +180,7 @@ const styles = StyleSheet.create({
   accordionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#1a237e',
   },
   completedAccordion: {
     backgroundColor: '#e8f5e9',
@@ -189,6 +194,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 8,
     fontWeight: 'bold',
+    color: '#1a237e',
   },
   timePicker: {
     width: '40%',
@@ -211,6 +217,7 @@ const styles = StyleSheet.create({
     padding: 8,
     marginBottom: 16,
     width: '100%',
+    color: '#555',
   },
   addMoreButton: {
     flexDirection: 'row',

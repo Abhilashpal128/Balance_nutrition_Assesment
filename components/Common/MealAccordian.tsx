@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
     backgroundColor: '#ffffff',
+    height: '100%',
   },
   submitButton: {
     // backgroundColor: '#isCompletedForm',
@@ -193,6 +194,7 @@ const styles = StyleSheet.create({
   submitButtonText: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: '#ffffff',
   },
   modalOverlay: {
     flex: 1,
@@ -216,11 +218,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#555',
   },
   modalText: {
     fontSize: 16,
     textAlign: 'center',
     marginBottom: 20,
+    color: '#555',
   },
   okButton: {
     backgroundColor: '#03989f',

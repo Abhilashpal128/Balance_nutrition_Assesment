@@ -151,6 +151,7 @@ export default function WorkoutMealDetails() {
                   placeholder="e.g. banana, black coffee, nuts"
                   value={value}
                   onChangeText={onChange}
+                  placeholderTextColor={'#555'}
                 />
               )}
             />
@@ -211,6 +212,7 @@ export default function WorkoutMealDetails() {
                   placeholder="e.g. banana, black coffee, nuts"
                   value={value}
                   onChangeText={onChange}
+                  placeholderTextColor={'#555'}
                 />
               )}
             />
@@ -274,7 +276,6 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     fontWeight: 'bold',
-    // marginBottom: 8,
     color: '#1a237e',
   },
   subheading: {
@@ -292,6 +293,7 @@ const styles = StyleSheet.create({
   picker: {
     height: 50,
     width: '100%',
+    color: '#555',
   },
   inputRow: {
     flexDirection: 'row',
@@ -316,6 +318,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
     fontSize: 16,
+    color: '#555',
   },
   errorText: {
     color: 'red',

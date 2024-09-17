@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
   topContentText: {
     textAlign: 'center',
     fontSize: 16,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    color: '#000',
   },
 });
